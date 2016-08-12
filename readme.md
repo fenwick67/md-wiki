@@ -1,6 +1,4 @@
-
-
-Env vars:
+## Env vars:
 
 ```
 MONGO_URL: mongodb url  < mongodb://localhost/test >
