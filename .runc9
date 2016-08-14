@@ -1,0 +1,4 @@
+#!/bin/sh
+sudo apt-get install mongodb-org
+mongod --repair
+mongod --bind_ip=0.0.0.0 --nojournal

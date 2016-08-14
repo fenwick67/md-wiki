@@ -1,0 +1,11 @@
+//article
+// article HTML is page.html
+if (page.isArticle)
+    a.btn.btn-success(href=page.slug+"/edit") Edit
+    a.btn.btn-danger(href=page.slug+"/edit") Delete
+    .article
+        !=page.html
+    pre.markdown.hidden
+        !=page.markdown
+else
+    !=page.html

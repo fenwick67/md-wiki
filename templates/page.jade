@@ -2,26 +2,30 @@
 html
   head
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    link(rel="stylesheet" href="/css/style.css")
     title= wiki.title
   body
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+    script(src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js")
     include nav.jade
     .container-fluid
       .row
         .col-md-3
           include sidebar.jade
-        .container
+        .col-md-9
           if (!page.html && !wiki.setUp)
             .jumbotron
               h1 Nothing Here!
               p Looks like your wiki is empty.  Set your wiki up now?
               p
-                a.btn.btn-primary(href="/setup") Get Started
-          else if !page.html 
+                a.btn.btn-primary(href="/setup") Get Started.
+          else if (articles)
+            include category.jade
+          else if !page.html
             div This is your Wiki's home
           else
             include article.jade
         
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous")
-    
+
